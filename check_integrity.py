@@ -361,7 +361,7 @@ for subscription_url in subscription_data['subscriptions']:
     # Read the debian/control file and look for "Package: <somename>"
     packages = []
     pkg_regex = re.compile('^\s*Package:\s*(\S+)\s*$')
-    for line in open('/tmp/code/debian/control', 'r'):
+    for line in open("%s/debian/control" % bzr_tmp, 'r'):
         match = re.search(pkg_regex, line)
         if(match):
             # Found one...parse the package name.
